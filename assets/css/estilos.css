@@ -1,0 +1,150 @@
+body {
+	background-color: silver;
+	font-family: "Trebuchet MS", helvetica, sans-serif;
+	margin: 0;
+}
+
+label {
+	display: block;
+	width: 200px;
+}
+
+input, select, textarea {
+	margin-bottom: 10px;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+input:focus, select:focus, textarea:focus {
+	border: 1px solid blue;
+	box-shadow: 0 0 5px blue;
+}
+
+fieldset {
+	border: 2px solid black;
+	border-radius: 8px;
+	box-shadow: 4px 4px 2px gray;
+}
+
+legend {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: black;
+	color: white;
+}
+
+button {
+	float: right;
+	background-color: black;
+	cursor: pointer;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	margin-top: 15px;
+	font-size: 15px;
+	min-width: 150px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+	background-color: silver;
+}
+
+tr:nth-child(odd) {
+	background-color: lightyellow;
+}
+
+td, th {
+	border: 1px solid black;
+	padding: 4px;
+}
+
+td.acoes {
+	text-align: center;
+}
+.container {
+	width: 960px;
+	height: auto;
+	position: relative;
+	left: 50%;
+	margin-left: -480px;
+}
+.content {
+	float: left;
+	width: 100%;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid black;
+}
+.header {
+	float: left;
+	width: 100%;
+	height: 60px;
+	padding: 10px 20px 30px;
+	margin-bottom: 20px;
+	background-color: black;
+	border: 1px solid black;
+}
+.header h1 {
+  float: left;
+	color: white;
+}
+.header ul {
+	float: right;
+	list-style: none;
+  padding: 0;
+}
+.header li {
+	float: left;
+  display: inline;
+	margin-top: 15px;
+}
+.header a {
+	text-decoration: none;
+	color: #fff;
+	margin-left: 30px;
+}
+
+.header a:hover {
+	color: #222;
+}
+.footer {
+	float: left;
+	width: 100%;
+	height: 20px;
+	margin-top: 10px;
+	word-spacing: 30px;
+}
+.footer a {
+	text-decoration: none;
+	color: #000;
+}
+.footer a:hover {
+	color: #333;
+}
+.success {
+	float: left;
+	width: 975px;
+	height: auto;
+	color: #3C763D;
+  background-color: #DFF0D8;
+  border-color: #D6E9C6;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	padding-left: 25px;
+}
+.error {
+	float: left;
+	width: 975px;
+	height: auto;
+	color: #A94442;
+  background-color: #F2DEDE;
+  border-color: #EBCCD1;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	padding-left: 25px;
+}
