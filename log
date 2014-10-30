@@ -1,3 +1,6 @@
 git add .
 
 Adicionando todos os arquivos novamente... por erros de Untracked files.
+
+* Alterar o número de caracteres no BD do campo senha, está setado com 12, alterar superior a 32.
+  Assim o sha1 terá espaço para gerar o hash... senão vai ficar caido no senha inválida sempre.
