@@ -14,6 +14,7 @@ function login($login, $senha)
 
   $query = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' LIMIT 1";
   consultar($query);
+  var_dump($query);
   
   $resultado = proximo_registro();
   

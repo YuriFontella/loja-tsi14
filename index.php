@@ -35,10 +35,12 @@
     
   case 'sair':
     
-    $data = array($_SESSION['logado'], $_SESSION['id']);
+    session_name('loja');
+    session_start();
+    $_SESSION = array();
     
-    session_destroy($data);
-    session_unset($data);
+    session_destroy();
+    
     header('Location: ' . URL_BASE);
     
   break;
