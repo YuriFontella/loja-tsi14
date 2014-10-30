@@ -4,6 +4,37 @@
 require_once 'lib/constantes.php';
 require_once 'lib/database.php';
 
+function login($login, $senha)
+{
+  
+  if ($login == null or $senha == null)
+  {
+    echo "<script>alert('Nenhum campo pode ficar em branco.');history.go(-1);</script>";
+  }
+
+  $consulta = 'SELECT * FROM usuarios WHERE login = "$login" and senha = "$senha" LIMIT 1';
+  consultar($consulta);
+  
+  $resultado = proximo_registro();
+  
+  if(linhas_afetadas() == 1)
+  {
+    session_name('loja');
+    session_start();
+    
+    $_SESSION['logado'] = true;
+    $_SESSION['nome'] = $resultado['nome'];
+    
+    header('Location: usuarios.php');
+    
+  }
+  else
+  {
+    echo "<script>alert('Login ou senha incorretos, verifique!');history.go(-1);</script>";
+  }
+  
+}
+
 function listar_usuarios() 
 {
 

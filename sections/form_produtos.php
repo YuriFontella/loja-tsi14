@@ -1,6 +1,5 @@
 			<h1><?php echo $titulo_pagina; ?></h1>
-			<form method="post"
-			action="<?php echo URL_BASE; ?>produtos.php?acao=gravar">
+			<form method="post"	action="<?php echo URL_BASE; ?>produtos.php?acao=gravar">
 				<?php
 					// se há um id definido (se é uma alteração)
 					if (isset($id))

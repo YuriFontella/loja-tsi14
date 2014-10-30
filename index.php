@@ -24,6 +24,15 @@
     
   break;
     
+  case 'login':
+    
+    $login = $_POST['login'];
+    $senha = sha1($_POST['senha']);
+    
+    login($login, $senha);
+    
+  break;
+    
   default:
     
     die('Erro: Ação inexistente!');

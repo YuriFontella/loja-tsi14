@@ -20,13 +20,13 @@
       <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Faça o Login</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Faça o Login</a>
           </div>
         </div>
       </div>
@@ -35,11 +35,11 @@
       <div class="col-md-12">
         <form class="form-inline" method="post" action="<?php echo URL_BASE ?>index.php?acao=login" role="form">
           <div class="form-group">
-            <label class="sr-only" for="exampleInputEmail2">Login</label>
+            <label class="sr-only" for="login">Login</label>
             <input type="text" name="login" class="form-control" placeholder="Login...">
           </div>
           <div class="form-group">
-            <label class="sr-only" for="exampleInputPassword2">Password</label>
+            <label class="sr-only" for="senha">Password</label>
             <input type="password" name="senha" class="form-control" placeholder="Senha...">
           </div>
           <button type="submit" class="btn btn-default">Entrar</button>
@@ -51,6 +51,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
   </body>
 </html>
