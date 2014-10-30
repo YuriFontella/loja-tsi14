@@ -12,8 +12,8 @@ function login($login, $senha)
     echo "<script>alert('Nenhum campo pode ficar em branco.');history.go(-1);</script>";
   }
 
-  $consulta = 'SELECT * FROM usuarios WHERE login = "$login" and senha = "$senha" LIMIT 1';
-  consultar($consulta);
+  $query = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' LIMIT 1";
+  consultar($query);
   
   $resultado = proximo_registro();
   
@@ -22,8 +22,8 @@ function login($login, $senha)
     session_name('loja');
     session_start();
     
-    $_SESSION['logado'] = true;
-    $_SESSION['nome'] = $resultado['nome'];
+    $_SESSION['logado'] = TRUE;
+    $_SESSION['id'] = $resultado['id'];
     
     header('Location: usuarios.php');
     

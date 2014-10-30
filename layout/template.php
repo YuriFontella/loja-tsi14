@@ -18,6 +18,15 @@
     </head>
   
     <body>
+      
+      <?php 
+         
+        session_name('loja');
+        session_start();
+        if($_SESSION['logado'] == TRUE): 
+      
+      ?>
+      
       <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -33,7 +42,8 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?php echo URL_BASE ?>index.php">Início</a></li>
                     <li><a href="<?php echo URL_BASE ?>produtos.php">Produtos</a></li>
-                    <li><a href="<?php echo URL_BASE ?>usuarios.php">Usuários</a></li>                    
+                    <li><a href="<?php echo URL_BASE ?>usuarios.php">Usuários</a></li>                  
+                    <li><a href="<?php echo URL_BASE ?>index.php?acao=sair">Sair</a></li>                  
                 </ul>
             </div><!--/.nav-collapse -->
           </div>
@@ -73,7 +83,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="assets/js/bootstrap.min.js"></script>
+      
+      
+      <?php 
+  
+        else:
+          echo "<script>alert('É necessário fazer o login!');window.location = 'index.php';</script>";
+        endif;
+      ?>
     </body>
-
-
-    </html>
+  </html>

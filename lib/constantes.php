@@ -1,7 +1,7 @@
 <?php
 
 	// declaração da constante da URL base da aplicação
-	define('URL_BASE', 'http://loja.local/');
+	define('URL_BASE', 'http://localhost/loja-tsi14/');
 
 	// declaração das constantes de acesso ao banco de dados
 	define('HOST', 'localhost');

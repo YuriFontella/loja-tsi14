@@ -33,6 +33,16 @@
     
   break;
     
+  case 'sair':
+    
+    $data = array($_SESSION['logado'], $_SESSION['id']);
+    
+    session_destroy($data);
+    session_unset($data);
+    header('Location: ' . URL_BASE);
+    
+  break;
+    
   default:
     
     die('Erro: Ação inexistente!');
