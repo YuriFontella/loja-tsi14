@@ -16,8 +16,9 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+  
+    <body>
+      <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,9 +36,8 @@
                     <li><a href="<?php echo URL_BASE ?>usuarios.php">Usuários</a></li>                    
                 </ul>
             </div><!--/.nav-collapse -->
+          </div>
         </div>
-    </div>
-    <body>
         <div class="container">
             <!-- Alertas -->
             <?php if ($_GET['success'] == 'true'): ?>

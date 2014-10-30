@@ -7,7 +7,7 @@
     <title><?php echo $titulo ?></title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,7 +17,36 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Faça o Log in</h1>
+      <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Faça o Login</a>
+          </div>
+        </div>
+      </div>
+    <div class="container">
+      <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline" method="post" action="<?php echo URL_BASE ?>index.php?acao=login" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail2">Login</label>
+            <input type="text" name="login" class="form-control" placeholder="Login...">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="exampleInputPassword2">Password</label>
+            <input type="password" name="senha" class="form-control" placeholder="Senha...">
+          </div>
+          <button type="submit" class="btn btn-default">Entrar</button>
+        </form>
+      </div>
+      </div>
+    </div>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
