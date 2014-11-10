@@ -1,10 +1,8 @@
 CREATE DATABASE  IF NOT EXISTS `loja` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `loja`;
-
-
 -- MySQL dump 10.13  Distrib 5.6.19, for linux-glibc2.5 (x86_64)
 --
--- Host: 127.0.0.1    Database: loja-master
+-- Host: 127.0.0.1    Database: loja
 -- ------------------------------------------------------
 -- Server version	5.5.33-1
 
@@ -167,11 +165,11 @@ CREATE TABLE `usuarios` (
   `nome` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
   `login` varchar(20) NOT NULL,
-  `senha` varchar(12) DEFAULT NULL,
+  `senha` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +178,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Yuri Cazzeri Fontella','yurifc4@gmail.com','yurifc4','da39a3ee5e6b'),(2,'Bob Marley','bob@bob.com','bob','5355bcb8eab0'),(3,'Bush','bush@bush.com','bush','7c4a8d09ca37'),(4,'Megan Fox','fox@fox.com','fox','5f60b7b19980');
+INSERT INTO `usuarios` VALUES (1,'Yuri Cazzeri Fontella','yurifc4@gmail.com','yurifc4','7c4a8d09ca3762af61e59520943dc26494f8941b'),(2,'Bob Marley','bob@bob.com','bob','7c4a8d09ca3762af61e59520943dc26494f8941b'),(3,'Bush','bush@bush.com','bush','7c4a8d09ca3762af61e59520943dc26494f8941b'),(4,'Megan Fox','fox@fox.com','fox','7c4a8d09ca3762af61e59520943dc26494f8941b'),(6,'admin','admin','admin','d033e22ae348aeb5660fc2140aec35850c4da997'),(7,'123456','123456','123456','7c4a8d09ca3762af61e59520943dc26494f8941b');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -193,4 +191,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-19 22:48:56
+-- Dump completed on 2014-11-07  7:41:28

@@ -12,9 +12,8 @@ function login($login, $senha)
     echo "<script>alert('Nenhum campo pode ficar em branco.');history.go(-1);</script>";
   }
 
-  $query = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha' LIMIT 1";
+  $query = "SELECT id, login, senha FROM usuarios WHERE login = '$login' AND senha = '$senha' LIMIT 1";
   consultar($query);
-  var_dump($query);
   
   $resultado = proximo_registro();
   
