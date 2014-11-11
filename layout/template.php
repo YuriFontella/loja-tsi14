@@ -1,3 +1,9 @@
+<?php
+session_start();
+session_name('loja');
+if($_SESSION['logado'] == TRUE):
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,14 +24,8 @@
     </head>
   
     <body>
-      
-      <?php 
-         
-        session_name('loja');
-        session_start();
-        if($_SESSION['logado'] == TRUE): 
-      
-      ?>
+
+
       
       <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
@@ -40,7 +40,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php">Início</a></li>
+                    <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php?acao=logado">Início</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/produtos.php">Produtos</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/usuarios.php">Usuários</a></li>                  
                     <li><a href="<?php echo URL_BASE ?>admin/index.php?acao=sair">Sair</a></li>                  
