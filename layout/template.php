@@ -40,7 +40,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?php echo URL_BASE ?>index.php">Início</a></li>
+                    <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php">Início</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/produtos.php">Produtos</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/usuarios.php">Usuários</a></li>                  
                     <li><a href="<?php echo URL_BASE ?>admin/index.php?acao=sair">Sair</a></li>                  

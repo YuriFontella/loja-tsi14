@@ -38,7 +38,7 @@
 			// define o título da página
 			$titulo_pagina = 'Lista de produtos';
 			// carrega o arquivo com a listagem de usuários (gui)
-			$content = 'sections/lista_produtos.php';
+			$content = '../sections/lista_produtos.php';
       require_once(template);
     
 			break;
@@ -61,7 +61,7 @@
 			}
 
 			// carrega arquivo com o formulário para incluir novo usuário
-			$content = 'sections/form_produtos.php';
+			$content = '../sections/form_produtos.php';
       require_once(template);
     
 			// interrompe o switch...case
