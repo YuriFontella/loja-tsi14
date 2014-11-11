@@ -1,8 +1,8 @@
 <?php
 
 // importa o código dos scripts
-require_once 'lib/constantes.php';
-require_once 'lib/database.php';
+require_once '../lib/constantes.php';
+require_once '../lib/database.php';
 
 function login($login, $senha)
 {

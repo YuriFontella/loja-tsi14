@@ -15,39 +15,15 @@
   }
 
   switch($acao)
-  {
-  
+  {  
+   
   case 'index':
     
-    $titulo = 'Login';
-    require_once('layout/login.php');
+    $titulo = 'Loja TSI 14';
+    require_once('layout/site.php');
     
   break;
-    
-  case 'login':
-    
-    $login = $_POST['login'];
-    $senha = sha1($_POST['senha']);
-    
-    login($login, $senha);
-    
-  break;
-    
-  case 'sair':
-    
-    session_name('loja');
-    session_start();
-    $_SESSION = array();
-    
-    session_destroy();
-    
-    header('Location: ' . URL_BASE);
-    
-  break;
-    
-  default:
-    
-    die('Erro: Ação inexistente!');
-    
-  	
+      
   }
+    
+  
