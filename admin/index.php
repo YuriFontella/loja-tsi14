@@ -20,8 +20,16 @@ if (isset($_GET['acao']))
    
   case 'index':
     
-    $titulo = 'Login';
-    require_once('../layout/login.php');
+    session_start();
+    if($_SESSION['logado'] != TRUE) 
+    {
+      $titulo = 'Login';
+      require_once('../layout/login.php');
+    }
+    else 
+    {
+      header('Location: usuarios.php');
+    }
     
   break;
     

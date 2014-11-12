@@ -27,7 +27,7 @@
     // define o título da página
     $titulo_pagina = 'Lista de usuários';
     //carrega a página com o conteúdo dentro do template
-    $content = 'sections/lista_usuarios.php';
+    $content = '../sections/lista_usuarios.php';
     
     $registros = listar_usuarios();
     
