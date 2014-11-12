@@ -42,7 +42,7 @@
     // define o título da página
     $titulo_pagina = 'Novo usuário';
     //carrega a página com o conteúdo dentro do template
-    $content =  'sections/form_usuarios.php';
+    $content =  '../sections/form_usuarios.php';
     
     require_once(template); //Definido no arquivo lib/constantes.php
 
@@ -55,7 +55,7 @@
     // define o título da página
     $titulo_pagina = 'Alterar usuário';
     //carrega a página com o conteúdo dentro do template
-    $content =  'sections/form_usuarios.php';
+    $content =  '../sections/form_usuarios.php';
     
     // captura o id passado na URL
     $id = $_GET['id'];

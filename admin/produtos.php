@@ -61,7 +61,7 @@
 			}
 
 			// carrega arquivo com o formulário para incluir novo usuário
-			$content = 'sections/form_produtos.php';
+			$content = '../sections/form_produtos.php';
       require_once(template);
     
 			// interrompe o switch...case
