@@ -2,7 +2,6 @@
 
   require_once 'lib/constantes.php';
   require_once 'lib/database.php';
-  require_once 'lib/functions.php';
 
   if (isset($_GET['acao']))
   {

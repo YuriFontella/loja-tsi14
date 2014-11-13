@@ -17,6 +17,50 @@
         <![endif]-->
     </head>
     <body>
+      <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Loja TSI 14</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="<?php echo URL_BASE ?>">Início</a></li>                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="list-group">
+              <a href="#" class="list-group-item disabled">
+                Cras justo odio
+              </a>
+              <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+              <a href="#" class="list-group-item">Morbi leo risus</a>
+              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+              <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </div>
+          </div>
+          <div class="col-md-9">
+          <div class="media">
+            <a class="media-left" href="#">
+              <img src="..." alt="...">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Media heading</h4>
+              ...
+            </div>
+          </div>
+          </div>
+        </div>      
+      </div>
         
         
         
