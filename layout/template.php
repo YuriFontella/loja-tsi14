@@ -18,7 +18,7 @@
         <title><?php echo $titulo_pagina ?></title>
 
         <!-- Bootstrap -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo URL_BASE ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +46,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php">Início</a></li>
-                    <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php?acao=logado">Início</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/produtos.php">Produtos</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/usuarios.php">Usuários</a></li>                  
                     <li><a href="<?php echo URL_BASE ?>admin/index.php?acao=sair">Sair</a></li>                  
@@ -88,7 +87,7 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo URL_BASE ?>assets/js/bootstrap.min.js"></script>
         
     </body>
   </html>

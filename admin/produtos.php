@@ -3,6 +3,7 @@
 	// importa o código dos scripts
 	require_once '../lib/constantes.php';
 	require_once '../lib/database.php';
+  require_once '../lib/functions.php';
 
 	// se uma ação foi informada na URL
 	if (isset($_GET['acao']))
