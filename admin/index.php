@@ -4,7 +4,6 @@
   require_once '../lib/database.php';
   require_once '../lib/functions.php';
 
-
 if (isset($_GET['acao']))
   {
     $acao = $_GET['acao'];
@@ -19,16 +18,15 @@ if (isset($_GET['acao']))
   {  
    
   case 'index':
-    
-    session_start();
+
     if($_SESSION['logado'] != TRUE) 
     {
       $titulo = 'Login';
       require_once('../layout/login.php');
     }
-    else 
+    else
     {
-      header('Location: usuarios.php');
+      die('<script type="text/javascript">window.location = "usuarios.php"</script>');
     }
     
   break;
@@ -43,14 +41,12 @@ if (isset($_GET['acao']))
   break;
     
   case 'sair':
-    
-    session_name('loja');
-    session_start();
+
     $_SESSION = array();
     
     session_destroy();
     
-    header('Location: ' . URL_BASE);
+    header('Location: ' . URL_BASE . 'admin/');
     
   break;
     

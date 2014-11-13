@@ -1,7 +1,12 @@
 <?php
-session_start();
-session_name('loja');
-if($_SESSION['logado'] == TRUE):
+
+  if($_SESSION['logado'] != TRUE)
+  {
+
+    echo "<script>alert('É necessário fazer o login!');window.location = 'index.php';</script>";
+
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,11 +45,8 @@ if($_SESSION['logado'] == TRUE):
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-<<<<<<< HEAD
                     <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php">Início</a></li>
-=======
                     <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php?acao=logado">Início</a></li>
->>>>>>> df79d1167f832f1f689b9559de23953ec2d3ed12
                     <li><a href="<?php echo URL_BASE ?>admin/produtos.php">Produtos</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/usuarios.php">Usuários</a></li>                  
                     <li><a href="<?php echo URL_BASE ?>admin/index.php?acao=sair">Sair</a></li>                  
@@ -87,13 +89,6 @@ if($_SESSION['logado'] == TRUE):
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="assets/js/bootstrap.min.js"></script>
-      
-      
-      <?php 
-  
-        else:
-          echo "<script>alert('É necessário fazer o login!');window.location = 'index.php';</script>";
-        endif;
-      ?>
+        
     </body>
   </html>

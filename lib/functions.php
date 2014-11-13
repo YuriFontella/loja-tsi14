@@ -4,6 +4,9 @@
 require_once '../lib/constantes.php';
 require_once '../lib/database.php';
 
+session_name('loja');
+session_start();
+
 function login($login, $senha)
 {
   
@@ -18,10 +21,7 @@ function login($login, $senha)
   $resultado = proximo_registro();
   
   if(linhas_afetadas() == 1)
-  {
-    session_name('loja');
-    session_start();
-    
+  {    
     $_SESSION['logado'] = TRUE;
     $_SESSION['id'] = $resultado['id'];
     
