@@ -90,7 +90,7 @@
       $nome_dep = $registro['nome_dep'];
 			$nome_prod = $registro['nome_prod'];
 			$detalhes = $registro['detalhes'];
-			$preco = $registro['preco'];
+			$preco = number_format($registro['preco'], 2, ',', '.');
 
 			// define o título da página
 			$titulo_pagina = 'Alterar usuário';
@@ -115,7 +115,7 @@
 			}
 			else
 			{
-				$consulta = "update usuarios set nome = '$nome', email = '$email', login = '$login', senha = '$senha'	where id = {$_POST['id']}";
+				$consulta = "update produtos set nome = '$nome', id_departamento = '$id_departamento', detalhes = '$detalhes', preco = '$preco'	where id = {$_POST['id']}";
 				$msg_erro = 'Não foi possível alterar.';
 			}
 			// executa a consulta

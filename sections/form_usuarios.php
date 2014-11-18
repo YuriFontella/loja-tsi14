@@ -9,15 +9,15 @@
     ?>
     <div class="form-group">
       <label for="nome">Nome:</label>
-      <input type="text" name="nome" class="form-control" id="nome" value="<?=isset($data['nome']) ? $data['nome'] : ''; ?>">
+      <input type="text" name="nome" class="form-control" value="<?=isset($data['nome']) ? $data['nome'] : ''; ?>">
     </div>
     <div class="form-group">
       <label for="email">e-mail:</label>
-      <input type="text" name="email" class="form-control" id="email" value="<?=isset($data['email']) ? $data['email'] : ''; ?>">
+      <input type="text" name="email" class="form-control" value="<?=isset($data['email']) ? $data['email'] : ''; ?>">
     </div>
     <div class="form-group">
       <label for="login">Login:</label>
-      <input type="text" class="form-control" name="login" id="login" value="<?=isset($data['login']) ? $data['login'] : ''; ?>">
+      <input type="text" class="form-control" name="login" value="<?=isset($data['login']) ? $data['login'] : ''; ?>">
     </div>
     <div class="form-group">
       <label for="senha">Senha:</label>
