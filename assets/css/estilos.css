@@ -5,22 +5,6 @@ body {
 	font-family: "Trebuchet MS", helvetica, sans-serif;
 	margin: 0;
 }
-
-.centralizado {
-    margin: 0 auto;
-    float: none;
-}
-
-#login { 
-        max-width: 400px;
-        margin: 30px auto;        
-}
-
-#logintitulo {        
-        text-align: center;
-        font-family: Verdana;
-        font-size: 15pt;
-}
 label {
 	display: block;
 	width: 200px;
@@ -165,4 +149,24 @@ td.acoes {
 	margin-bottom: 10px;
 	padding-left: 25px;
 }
+.centralizado {
+    margin: 0 auto;
+    float: none;
+}
 
+*/
+
+#login { 
+  max-width: 400px;
+  margin: 30px auto;        
+}
+
+#logintitulo {        
+  text-align: center;
+  font-family: Verdana;
+  font-size: 15pt;
+}
+.footer {
+	margin-top: 10px;
+	word-spacing: 30px;
+}

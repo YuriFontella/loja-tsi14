@@ -1,4 +1,4 @@
-<h1><?php echo $titulo_pagina; ?> <small><a href="#" data-toggle="modal" data-target="#dep" class="pull-right">Incluir Departamento</a></small></h1>
+<h1><?php echo $titulo_pagina; ?></h1>
 <table class="table table-hover table-striped">
   <thead>
     <tr>
@@ -6,6 +6,7 @@
     </tr>
   </thead>
   <tbody>
+    <?php if(count($registros) > 0): ?>
     <?php
       foreach($registros as $registro)
       {
@@ -23,8 +24,9 @@
         ";
       }
     ?>
+    <?php else: ?>
+      <tr><td colspan="5">Nenhum produto cadastrado!</td></tr>
+    <?php endif ?>
   </tbody>
 </table>
 <div class="form-group"><button type="button" class="btn btn-default" onclick="document.location='<?=URL_BASE;?>admin/produtos.php?acao=incluir';">Novo</button></div>
-
-<?php require_once("departamento-modal.php") ?>

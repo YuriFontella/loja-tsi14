@@ -6,6 +6,7 @@
     </tr>
   </thead>
   <tbody>
+    <?php if(count($registros) > 0): ?>
     <?php
       foreach($registros as $registro)
       {
@@ -23,6 +24,9 @@
         ";
       }
     ?>
+    <?php else: ?>
+      <tr><td colspan="5">Nenhum usuário cadastrado!</td></tr>
+    <?php endif ?>
   </tbody>
 </table>
 <div class="form-group"><button type="button" class="btn btn-default" onclick="document.location='<?=URL_BASE;?>admin/usuarios.php?acao=incluir';">Novo</button></div>

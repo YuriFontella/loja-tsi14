@@ -8,8 +8,8 @@
         <title><?php echo $titulo ?></title>
 
         <!-- Bootstrap -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../assets/css/estilos.css" rel="stylesheet">
+        <link href="<?php echo URL_BASE ?>assets/css/bootstrap.css" rel="stylesheet">
+        <link href="<?php echo URL_BASE ?>assets/css/estilos.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,7 +43,8 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo URL_BASE ?>assets/js/bootstrap.js"></script>
+        <script src="<?php echo URL_BASE ?>assets/js/npm.js"></script>
     </body>
 </html>
 

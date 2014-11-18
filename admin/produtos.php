@@ -40,7 +40,7 @@
 			$titulo_pagina = 'Lista de produtos';
 			// carrega o arquivo com a listagem de usuários (gui)
 			$content = '../sections/lista_produtos.php';
-      require_once(template);
+      require_once(template_admin);
     
 			break;
     
@@ -54,16 +54,14 @@
 
 			$lista_deptos = '';
 
-			while($registro = proximo_registro())
+      while($registro = proximo_registro())
 			{
-				$lista_deptos .= '<option value="' .
-				$registro['id'] . '">' .
-				$registro['nome'] . '</option>';
+				$lista_deptos .= '<option value="' . $registro['id'] . '">' .	$registro['nome'] . '</option>';
 			}
 
 			// carrega arquivo com o formulário para incluir novo usuário
 			$content = '../sections/form_produtos.php';
-      require_once(template);
+      require_once(template_admin);
     
 			// interrompe o switch...case
 			break;
@@ -80,22 +78,25 @@
 			// captura o id passado na URL
 			$id = $_GET['id'];
 			// monta consulta SQL para recuperar os dados do usuário a ser alterado
-			$consulta = "select * from produtos where id = $id";
+			$consulta = "SELECT p.id AS id_prod, p.nome AS nome_prod, p.detalhes, p.preco, p.id_departamento, d.id AS id_dep, d.nome AS nome_dep FROM produtos AS p JOIN departamentos AS d ON d.id = p.id_departamento WHERE p.id = $id";
 			// executa a consulta
 			consultar($consulta);
 			// captura o registro retornado pela consulta
 			$registro = proximo_registro();
 
 			// extrai as informações em variáveis avulsas
-			$nome = $registro['nome'];
+      $id_prod = $registro['id_prod'];
+      $id_dep = $registro['id_dep'];
+      $nome_dep = $registro['nome_dep'];
+			$nome_prod = $registro['nome_prod'];
 			$detalhes = $registro['detalhes'];
 			$preco = $registro['preco'];
 
 			// define o título da página
 			$titulo_pagina = 'Alterar usuário';
 			// carrega o formulário para alterar o usuário
-			$content = 'sections/form_produtos.php';
-      require_once(template);
+			$content = '../sections/form_produtos.php';
+      require_once(template_admin);
     
 			break;
     
@@ -109,7 +110,7 @@
 			if (!isset($_POST['id']))
 			{
 			// monta consulta sql para realização a inserção
-				$consulta = "insert into produtos (nome, id_departamento,	detalhes, preco) values ('$nome',	$id_departamento, '$detalhes', $preco)";
+				$consulta = "insert into produtos (nome, id_departamento,	detalhes, preco) values ('$nome',	'$id_departamento', '$detalhes', '$preco')";
 				$msg_erro = 'Não foi possível inserir.';
 			}
 			else
@@ -166,6 +167,24 @@
 			}
     
 			break;
+    
+    
+    
+    
+    
+    
+    //Casos com funções
+    
+    case 'departamento':
+    
+      $nome = $_POST['nome'];
+      incluir_departamento($nome);
+    
+    break;
+    
+    
+    
+    
     
 		default:
     

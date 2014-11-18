@@ -139,5 +139,18 @@ function excluir_usuario($id)
   
 }
 
+function incluir_departamento($nome)
+{
+  $query = "INSERT INTO departamentos (nome) VALUES ('$nome')";
+  consultar($query);
+  
+  if(linhas_afetadas() > 0)
+  {
+    // redireciona para a listagem de usuários
+    header('location:' . URL_BASE .	'admin/produtos.php?acao=listar&success=true&message=Departamento+incluido+com+sucesso!');
+  }
+  
+}
+
 
 ?>

@@ -26,12 +26,12 @@
     
     // define o título da página
     $titulo_pagina = 'Lista de usuários';
-    //carrega a página com o conteúdo dentro do template
+    //carrega a página com o conteúdo dentro do template_admin
     $content = '../sections/lista_usuarios.php';
     
     $registros = listar_usuarios();
     
-    require_once(template); //Definido no arquivo lib/constantes.php
+    require_once(template_admin); //Definido no arquivo lib/constantes.php
 
   break;
     
@@ -41,10 +41,10 @@
     
     // define o título da página
     $titulo_pagina = 'Novo usuário';
-    //carrega a página com o conteúdo dentro do template
+    //carrega a página com o conteúdo dentro do template_admin
     $content =  '../sections/form_usuarios.php';
     
-    require_once(template); //Definido no arquivo lib/constantes.php
+    require_once(template_admin); //Definido no arquivo lib/constantes.php
 
   break;
     
@@ -54,7 +54,7 @@
     
     // define o título da página
     $titulo_pagina = 'Alterar usuário';
-    //carrega a página com o conteúdo dentro do template
+    //carrega a página com o conteúdo dentro do template_admin
     $content =  '../sections/form_usuarios.php';
     
     // captura o id passado na URL
@@ -63,7 +63,7 @@
     //chamando a  function para alterar
     $data = alterar_usuario($id);
 
-    require_once(template); //Definido no arquivo lib/constantes.php
+    require_once(template_admin); //Definido no arquivo lib/constantes.php
     
   break;
 
