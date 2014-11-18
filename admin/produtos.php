@@ -123,7 +123,7 @@
 			if(linhas_afetadas() > 0)
 			{
 				// redireciona para a listagem de usuários
-				header('location:' . URL_BASE .	'produtos.php?acao=listar');
+				header('location:' . URL_BASE .	'admin/produtos.php?acao=listar');
 				// finaliza a execução do script
 				exit;
 			}
@@ -148,14 +148,14 @@
 			// captura o id passado na URL
 			$id = $_GET['id'];
 			// monta consulta SQL para excluir usuário
-			$consulta = "delete from usuarios where id = $id";
+			$consulta = "delete from produtos where id = $id";
 			// executa a consulta
 			consultar($consulta);
 			// verifica se a exclusão foi bem sucedida
 			if(linhas_afetadas() > 0)
 			{
 				// redireciona para a listagem de usuários
-				header('location:' . URL_BASE .	'usuarios.php?acao=listar');
+				header('location:' . URL_BASE .	'admin/produtos.php?acao=listar');
 				// encerra a execução do script
 				exit;
 			}

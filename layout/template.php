@@ -18,6 +18,7 @@
         <title><?php echo $titulo_pagina ?></title>
 
         <!-- Bootstrap -->
+        <link href="<?php echo URL_BASE ?>assets/css/bootstrap.css" rel="stylesheet">
         <link href="<?php echo URL_BASE ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -45,7 +46,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?php echo URL_BASE ?>admin/index.php">Início</a></li>
+                    <li><a href="<?php echo URL_BASE ?>admin/index.php">Início</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/produtos.php">Produtos</a></li>
                     <li><a href="<?php echo URL_BASE ?>admin/usuarios.php">Usuários</a></li>                  
                     <li><a href="<?php echo URL_BASE ?>admin/index.php?acao=sair">Sair</a></li>                  
@@ -54,34 +55,35 @@
           </div>
         </div>
         <div class="container">
+          <div class="row">
             <!-- Alertas -->
             <?php if ($_GET['success'] == 'true'): ?>
-                <div class="success">
+                <div class="alert alert-success">
                     <p><?php echo $_GET['message'] ?></p>
                 </div>
             <?php endif ?>
 
             <?php if ($_GET['error'] == 'true'): ?>
-                <div class="error">
+                <div class="alert alert-error">
                     <p><?php echo $_GET['message'] ?></p>
                 </div>
             <?php endif ?>
 
             <!-- Container -->
-            <div class="content">
+            <div class="col-md-12">
                 <?php require_once($content) ?>
             </div>
 
             <!-- Footer -->
             <hr>
-            <div class="">
+            <div class="col-md-12" style="margin-top:20px">
                 <p>
                     <a href="#">Sobre</a>
                     <a href="#">Contato</a>
                     <a href="#">Produtos</a>
                 </p>
             </div>
-
+          </div>
         </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

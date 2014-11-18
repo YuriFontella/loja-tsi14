@@ -39,7 +39,7 @@ function listar_usuarios()
 {
 
   // monta a consulta para recuperar a listagem de usuários ordenada pelo nome
-  $consulta = "select * from usuarios order by id ASC";
+  $consulta = "SELECT * FROM usuarios WHERE login NOT IN ('admin') ORDER BY id ASC";
   
   // declara um vetor de registros para passar para a view (gui)
   $registros = array();
@@ -102,12 +102,12 @@ function gravar_usuario($nome, $email, $login, $senha)
   if(linhas_afetadas() > 0)
   {
     // redireciona para a listagem de usuários
-    header('location:' . URL_BASE .	'usuarios.php?acao=listar&success=true&message=Parece+que+deu+tudo+certo!');        
+    header('location:' . URL_BASE .	'admin/usuarios.php?acao=listar&success=true&message=Parece+que+deu+tudo+certo!');        
   }
   else 
   {
     // exibe mensagem de erro
-    header('location:' . URL_BASE .	'usuarios.php?acao=listar&error=true&message=A+operação+não+foi+bem+sucedida!');
+    header('location:' . URL_BASE .	'admin/usuarios.php?acao=listar&error=true&message=A+operação+não+foi+bem+sucedida!');
 
   }
   
@@ -126,12 +126,12 @@ function excluir_usuario($id)
   if(linhas_afetadas() > 0)
   {
     // redireciona para a listagem de usuários
-    header('location:' . URL_BASE .	'usuarios.php?acao=listar&success=true&message=Usuário+excluído+com+sucesso!');
+    header('location:' . URL_BASE .	'admin/usuarios.php?acao=listar&success=true&message=Usuário+excluído+com+sucesso!');
   }
   else 
   {				
     // exibe mensagem de erro
-    header('location:' . URL_BASE .	'usuarios.php?acao=listar&error=true&message=Não+foi+possível+excluir+o+usuario!');
+    header('location:' . URL_BASE .	'admin/usuarios.php?acao=listar&error=true&message=Não+foi+possível+excluir+o+usuario!');
   }
   
   // finaliza a execução do script

@@ -1,4 +1,4 @@
-<h1><?php echo $titulo_pagina; ?></h1>
+<h1><?php echo $titulo_pagina; ?> <small><a href="#" data-toggle="modal" data-target="#dep" class="pull-right">Incluir Departamento</a></small></h1>
 <table class="table table-hover table-striped">
   <thead>
     <tr>
@@ -16,9 +16,8 @@
             <td>{$registro['nome_departamento']}</td>
             <td>{$registro['preco']}</td>
             <td class='acoes'>
-              <a href='" . URL_BASE . "produtos.php?acao=alterar&id={$registro['id']}'>A</a>&nbsp;&nbsp;
-              <a href='javascript:if(confirm(\"Confirma a exclusão?\")){document.location=\"" .
-              URL_BASE . "produtos.php?acao=excluir&id={$registro['id']}\";}'>E</a>
+              <a href='" . URL_BASE . "admin/produtos.php?acao=alterar&id={$registro['id']}'>Alterar</a>&nbsp;&nbsp;
+              <a href='javascript:if(confirm(\"Confirma a exclusão?\")){document.location=\"" . URL_BASE . "admin/produtos.php?acao=excluir&id={$registro['id']}\";}'>Excluir</a>
             </td>
           </tr>
         ";
@@ -26,4 +25,6 @@
     ?>
   </tbody>
 </table>
-<div class="form-group"><button type="button" onclick="document.location='<?=URL_BASE;?>produtos.php?acao=incluir';">Novo</button></div>
+<div class="form-group"><button type="button" class="btn btn-default" onclick="document.location='<?=URL_BASE;?>admin/produtos.php?acao=incluir';">Novo</button></div>
+
+<?php require_once("departamento-modal.php") ?>
