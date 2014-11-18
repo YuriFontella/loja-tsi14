@@ -18,7 +18,7 @@
               {$registro['nome_produto']}
             </td>
             <td>{$registro['nome_departamento']}</td>
-            <td>". number_format($registro['preco'], 2, ',', '.') ."</td>
+            <td>R$ ". number_format($registro['preco'], 2, ',', '.') ."</td>
             <td class='acoes'>
               <a href='" . URL_BASE . "admin/produtos.php?acao=alterar&id={$registro['id']}'>Alterar</a>&nbsp;&nbsp;
               <a href='javascript:if(confirm(\"Confirma a exclusão?\")){document.location=\"" . URL_BASE . "admin/produtos.php?acao=excluir&id={$registro['id']}\";}'>Excluir</a>

@@ -18,7 +18,7 @@
    
   case 'index':
     
-    $titulo = 'Loja TSI 14';
+    $titulo = 'Loja TSI14';
     require_once('layout/site.php');
     
   break;
