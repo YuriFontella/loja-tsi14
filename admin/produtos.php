@@ -106,7 +106,7 @@
 			$nome = $_POST['nome'];
 			$id_departamento = $_POST['id_departamento'];
 			$detalhes = $_POST['detalhes'];
-			$preco = $_POST['preco'];
+			$preco = moeda($_POST['preco']);
 			if (!isset($_POST['id']))
 			{
 			// monta consulta sql para realização a inserção

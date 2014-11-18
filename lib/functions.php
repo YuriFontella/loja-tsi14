@@ -146,10 +146,21 @@ function incluir_departamento($nome)
   
   if(linhas_afetadas() > 0)
   {
-    // redireciona para a listagem de usuários
+    // redireciona para a listagem de produtos
     header('location:' . URL_BASE .	'admin/produtos.php?acao=listar&success=true&message=Departamento+incluido+com+sucesso!');
   }
   
+}
+
+//Funções fixas
+
+function moeda($valor) {
+
+  $source = array('.', ','); 
+  $replace = array('', '.');
+  $valor = str_replace($source, $replace, $valor); //remove os pontos e substitui a virgula pelo ponto
+  return $valor; //retorna o valor formatado para gravar no banco
+
 }
 
 
