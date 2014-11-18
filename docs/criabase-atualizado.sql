@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `loja` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `loja`;
--- MySQL dump 10.13  Distrib 5.6.19, for linux-glibc2.5 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.39, for debian-linux-gnu (x86_64)
 --
 -- Host: 127.0.0.1    Database: loja
 -- ------------------------------------------------------
--- Server version	5.5.33-1
+-- Server version	5.5.39-1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -54,7 +54,7 @@ CREATE TABLE `departamentos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,8 +63,33 @@ CREATE TABLE `departamentos` (
 
 LOCK TABLES `departamentos` WRITE;
 /*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
-INSERT INTO `departamentos` VALUES (1,'Informática'),(2,'Eletrônicos');
+INSERT INTO `departamentos` VALUES (3,'InformÃ¡tica'),(4,'EletrÃ´nicos'),(5,'Brinquedos');
 /*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `imagens`
+--
+
+DROP TABLE IF EXISTS `imagens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `imagens` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `foto` varchar(45) NOT NULL,
+  `id_produto` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `imagens`
+--
+
+LOCK TABLES `imagens` WRITE;
+/*!40000 ALTER TABLE `imagens` DISABLE KEYS */;
+INSERT INTO `imagens` VALUES (1,'1.png',5),(2,'2.png',6),(3,'3.png',7);
+/*!40000 ALTER TABLE `imagens` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -140,7 +165,7 @@ CREATE TABLE `produtos` (
   PRIMARY KEY (`id`),
   KEY `fk_produtos_departamentos_idx` (`id_departamento`),
   CONSTRAINT `fk_produtos_departamentos` FOREIGN KEY (`id_departamento`) REFERENCES `departamentos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +174,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (1,'Mouse Óptico',NULL,20.00,1),(2,'Monitor LED 23\"',NULL,400.00,1),(3,'TV Plasma 60\"',NULL,5000.00,2);
+INSERT INTO `produtos` VALUES (5,'TelevisÃ£o','Full HD Led 40 Polegadas',1.20,4),(6,'Notebook HP','NÃ£o Ã© dos melhores',2000.00,3),(7,'Hulk','Ãšnica peÃ§a no Brasil subdesenvolvido.',200000.00,5);
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +194,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `login_UNIQUE` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +203,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Yuri Cazzeri Fontella','yurifc4@gmail.com','yurifc4','7c4a8d09ca3762af61e59520943dc26494f8941b'),(2,'Bob Marley','bob@bob.com','bob','7c4a8d09ca3762af61e59520943dc26494f8941b'),(3,'Bush','bush@bush.com','bush','7c4a8d09ca3762af61e59520943dc26494f8941b'),(4,'Megan Fox','fox@fox.com','fox','7c4a8d09ca3762af61e59520943dc26494f8941b'),(6,'admin','admin','admin','d033e22ae348aeb5660fc2140aec35850c4da997'),(7,'123456','123456','123456','7c4a8d09ca3762af61e59520943dc26494f8941b');
+INSERT INTO `usuarios` VALUES (6,'admin','admin','admin','d033e22ae348aeb5660fc2140aec35850c4da997');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -191,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-07  7:41:28
+-- Dump completed on 2014-11-18 15:41:29

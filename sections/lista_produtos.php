@@ -2,7 +2,7 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
-      <th>Código</th><th>Nome</th><th>Departamento</th><th>Preço</th><th>Ações</th>
+      <th>Código</th><th>Produto</th><th>Departamento</th><th>Preço</th><th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -13,7 +13,10 @@
         echo "
           <tr>
             <td>" . $registro['id'] . "</td>
-            <td>{$registro['nome_produto']}</td>
+            <td>
+              <img src='". URL_BASE ."assets/img/{$registro['foto']}' width='65' height='40'>
+              {$registro['nome_produto']}
+            </td>
             <td>{$registro['nome_departamento']}</td>
             <td>{$registro['preco']}</td>
             <td class='acoes'>

@@ -24,7 +24,7 @@
 		case 'listar':
     
 			// monta a consulta para recuperar a listagem de usuários ordenada pelo nome
-			$consulta = "select p.id, p.nome as nome_produto,	p.preco, d.nome as nome_departamento from produtos p,	departamentos d	where d.id = p.id_departamento order by p.nome";
+			$consulta = "SELECT p.id, p.nome as nome_produto,	p.preco, d.nome as nome_departamento, i.foto FROM produtos p,	departamentos d, imagens i	WHERE d.id = p.id_departamento AND p.id = i.id_produto  ORDER BY p.nome";
     
 			// executa a consulta sql
 			consultar($consulta);
