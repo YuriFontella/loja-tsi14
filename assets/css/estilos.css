@@ -187,3 +187,26 @@ td.acoes {
   width: 200px;
   height: 200px;
 }
+.right-panel a
+{
+  float: left;
+  width: 100%;
+  margin-top: 15px;
+}
+.fileinput {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput input {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.btn-upload
+{
+  display: none;
+}

@@ -36,12 +36,20 @@
 
 </div>
 
-<?php if($foto): ?>
+<?php if($_GET['acao'] == 'alterar'): ?>
 <div class="col-md-4 right-panel">
- <img class="img img-circle" src="../assets/img/<?php echo $foto ?>">
-</div>
-<?php elseif($_GET['acao'] == 'alterar'): ?>
-<div class="col-md-4 right-panel">
- <img class="img img-circle" src="../assets/img/default.jpeg">
+  <?php if(isset($foto)): ?>
+    <img class="img img-circle" src="../assets/img/<?php echo $foto ?>">
+  <?php else: ?>
+    <img class="img img-circle" src="../assets/img/default.jpeg">
+  <?php endif ?>  
+  <form method="post" action="<?php echo URL_BASE ?>admin/produtos.php?acao=upload" enctype="multipart/form-data">
+    <a class="btn fileinput">
+      <p class="text-upload">Carregar uma imagem</p>
+      <input type="file" name="foto" id="foto">
+    </a>
+    <input type="hidden" name="id_produto" value="<?php echo $_GET['id'] ?>">
+    <button type="submit" class="btn btn-default btn-upload">Enviar Imagem</button>
+  </form>
 </div>
 <?php endif ?>

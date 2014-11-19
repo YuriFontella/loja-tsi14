@@ -152,6 +152,29 @@ function incluir_departamento($nome)
   
 }
 
+function upload($id_produto)
+{
+  $uploaddir = "../assets/img/";
+  $uploadfile = $_FILES['foto']['name'];
+
+  if (move_uploaded_file($_FILES['foto']['tmp_name'], $uploaddir . $uploadfile)) {
+    
+    $query = "INSERT INTO imagens (foto, id_produto) VALUES ('$uploadfile', '$id_produto')";
+    consultar($query);
+    
+    if(linhas_afetadas() > 0)
+    {
+      
+      header('location:' . URL_BASE .	'admin/produtos.php?acao=alterar&id='.$id_produto.'&success=true&message=Foto+alterada+com+sucesso+!'); 
+      
+    }
+
+  } else {
+      echo "<script>alert('Problemas na hora de carregar a imagem!');history.go(-1)</script>";
+  }
+  
+}
+
 //Funções fixas
 
 function moeda($valor) {

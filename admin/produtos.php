@@ -206,7 +206,12 @@
     
     break;
     
+    case 'upload':
     
+      $id_produto = $_POST['id_produto'];
+      upload($id_produto);
+    
+    break;
     
     
     
