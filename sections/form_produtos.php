@@ -36,6 +36,8 @@
 
 </div>
 
+<?php if($foto): ?>
 <div class="col-md-4 right-panel">
- <img class="img img-circle" src="../assets/img/<?php echo isset($foto) ? $foto : '' ?>">
+ <img class="img img-circle" src="../assets/img/<?php echo $foto ?>">
 </div>
+<?php endif ?>

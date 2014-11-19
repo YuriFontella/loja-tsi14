@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-8">
 
   <h1><?php echo $titulo_pagina; ?></h1>
   <form method="post" action="<?php echo URL_BASE; ?>admin/usuarios.php?acao=gravar" role="form">
