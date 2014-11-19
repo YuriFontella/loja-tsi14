@@ -78,7 +78,12 @@
 			// captura o id passado na URL
 			$id = $_GET['id'];
 			// monta consulta SQL para recuperar os dados do usuário a ser alterado
-			$consulta = "SELECT p.id AS id_prod, p.nome AS nome_prod, p.detalhes, p.preco, p.id_departamento, d.id AS id_dep, d.nome AS nome_dep FROM produtos AS p JOIN departamentos AS d ON d.id = p.id_departamento WHERE p.id = $id";
+			$consulta = "SELECT p.id id_prod, p.nome nome_prod, p.detalhes, p.preco, p.id_departamento, d.id id_dep, d.nome nome_dep, i.foto
+                   FROM produtos p 
+                   JOIN departamentos d ON p.id_departamento = d.id 
+                   JOIN imagens i ON p.id = i.id_produto               
+                   WHERE p.id = $id";
+    
 			// executa a consulta
 			consultar($consulta);
 			// captura o registro retornado pela consulta
@@ -90,10 +95,25 @@
       $nome_dep = $registro['nome_dep'];
 			$nome_prod = $registro['nome_prod'];
 			$detalhes = $registro['detalhes'];
+      $foto = $registro['foto'];
 			$preco = number_format($registro['preco'], 2, ',', '.');
+    
+      //Retornando os departamentos (Código não reutilizado :()
+    
+      $consulta = "SELECT * FROM departamentos WHERE nome NOT IN ('$nome_dep')";
+			consultar($consulta);
+
+			$lista_deptos = '';
+
+      while($registro = proximo_registro())
+			{
+				$lista_deptos .= '<option value="' . $registro['id'] . '">' .	$registro['nome'] . '</option>';
+			}
+    
+      //fim do código não reutilizado e sim criado novamente
 
 			// define o título da página
-			$titulo_pagina = 'Alterar usuário';
+			$titulo_pagina = 'Alterar o produto ' . $nome_prod;
 			// carrega o formulário para alterar o usuário
 			$content = '../sections/form_produtos.php';
       require_once(template_admin);

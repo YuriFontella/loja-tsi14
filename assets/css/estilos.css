@@ -156,17 +156,34 @@ td.acoes {
 
 */
 
-#login { 
+#login 
+{ 
   max-width: 400px;
   margin: 30px auto;        
 }
 
-#logintitulo {        
+#logintitulo 
+{        
   text-align: center;
   font-family: Verdana;
   font-size: 15pt;
 }
-.footer {
+.footer 
+{
 	margin-top: 10px;
 	word-spacing: 30px;
+}
+.right-panel
+{
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  height: 335px;
+  margin-top: 25px;
+  padding: 20px;
+  text-align: center;
+}
+.right-panel img
+{
+  width: 200px;
+  height: 200px;
 }
