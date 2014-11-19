@@ -24,7 +24,11 @@
 		case 'listar':
     
 			// monta a consulta para recuperar a listagem de usuários ordenada pelo nome
-			$consulta = "SELECT p.id, p.nome as nome_produto,	p.preco, d.nome as nome_departamento, i.foto FROM produtos p,	departamentos d, imagens i	WHERE d.id = p.id_departamento AND p.id = i.id_produto  ORDER BY p.nome";
+			$consulta = "SELECT p.id, p.nome as nome_produto,	p.preco, d.nome as nome_departamento, i.foto 
+                   FROM produtos p
+                   LEFT JOIN imagens i ON  p.id = i.id_produto
+                   JOIN departamentos d ON d.id = p.id_departamento 
+                   ORDER BY p.nome";
     
 			// executa a consulta sql
 			consultar($consulta);
@@ -81,7 +85,7 @@
 			$consulta = "SELECT p.id id_prod, p.nome nome_prod, p.detalhes, p.preco, p.id_departamento, d.id id_dep, d.nome nome_dep, i.foto
                    FROM produtos p 
                    JOIN departamentos d ON p.id_departamento = d.id 
-                   JOIN imagens i ON p.id = i.id_produto               
+                   LEFT JOIN imagens i ON p.id = i.id_produto               
                    WHERE p.id = $id";
     
 			// executa a consulta

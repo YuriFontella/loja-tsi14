@@ -40,4 +40,8 @@
 <div class="col-md-4 right-panel">
  <img class="img img-circle" src="../assets/img/<?php echo $foto ?>">
 </div>
+<?php elseif($_GET['acao'] == 'alterar'): ?>
+<div class="col-md-4 right-panel">
+ <img class="img img-circle" src="../assets/img/default.jpeg">
+</div>
 <?php endif ?>
