@@ -9,7 +9,8 @@
         <!-- Bootstrap -->
         <link href="<?php echo URL_BASE ?>assets/css/bootstrap.css" rel="stylesheet">
         <link href="<?php echo URL_BASE ?>assets/css/bootstrap-theme.css" rel="stylesheet">
-        <link href="<?php echo URL_BASE ?>assets/css/estilos.css" rel="stylesheet">      
+        <link href="<?php echo URL_BASE ?>assets/css/estilos.css" rel="stylesheet">
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +43,7 @@
           <div class="col-md-3">
             <div class="list-group">
               <a href="#" class="list-group-item disabled">
-                Cras justo odio
+                TSI LOJA
               </a>
               <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
               <a href="#" class="list-group-item">Morbi leo risus</a>
@@ -50,16 +51,26 @@
               <a href="#" class="list-group-item">Vestibulum at eros</a>
             </div>
           </div>
-          <div class="col-md-9">
-          <div class="media">
-            <a class="media-left" href="#">
-              <img src="..." alt="...">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading">Media heading</h4>
-              ...
-            </div>
+          <div class="col-md-8">
+          <?php foreach ($chamadas as $chamada) { ?>
+          
+          <div class="col-xs-5">
+            <div class="thumbnail">                    
+            
+                <ol class="breadcrumb">
+                    <li><a href=""><strong><h5><?php echo $chamada['nome_produto'] ?></h5></strong></a></li>
+                </ol>                
+                <a href="">
+                  <img src="<?=URL_BASE?>assets/img/<?=$chamada['foto']?>" height="200px" width="200px">                  
+                </a>
+              </div>  
           </div>
+
+          
+
+           <?php } /*end foreach*/ ?> 
+          
+
           </div>
         </div>      
       </div>
