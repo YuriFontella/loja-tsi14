@@ -1,28 +1,27 @@
-
 <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-        <div class="logo">
-            <img src="<?php echo URL_BASE ?>assets/img/logo.png" href="#">
-        </div>
-            
-        
-        
+  <div class="container">
+    <div class="collapse navbar-collapse">
+      <div class="logo pull-left">
+        <img src="<?php echo URL_BASE ?>assets/img/logo.png" href="#">
+      </div> 
+      <ul class="nav navbar-nav navbar-right">
+        <li style="margin-top:40px"><a href="#">Carrinho de compras (0)</a></li>
+      </ul>
     </div>
-    </div>
+  </div>
 </nav>
 
 <body>
-    <div class="conteudo">
+    <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="list-group">
                     <?php foreach ($deptos as $depto) { ?>
                         <a href="#" class="list-group-item"><?= $depto['nome'] ?></a>
                     <?php } /* end foreach */ ?> 
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <?php foreach ($chamadas as $chamada) { ?>
                     <div class="col-sm-4">
                         <div id="produto" class="thumbnail">                
@@ -43,7 +42,7 @@
                             </a>
                             <hr>
                             <p><?= substr($chamada['detalhes'], 0, 52) ?></p>
-                            <a href=""><strong><h3>Valor <?php echo "R$" . $chamada['preco'] ?></h3></strong></a>
+                            <a href=""><strong><h3>Valor R$ <?php echo number_format($chamada['preco'], 2, ',', '.') ?></h3></strong></a>
                             <div class="botaoComprar">
                                 <a type="button" class="btn btn-info btn-block botaoComprar">Adicionar ao carrinho</a>
                             </div>

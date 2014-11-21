@@ -1,3 +1,6 @@
+CREATE DATABASE `loja`;
+Use `loja`;
+
 -- phpMyAdmin SQL Dump
 -- version 4.1.14
 -- http://www.phpmyadmin.net
