@@ -10,17 +10,28 @@ function chamadas() {
     // executa a consulta sql
     consultar($consulta);
     // declara um vetor de registros para passar para a view (gui)
-    $registros = proximo_registro();
+    $registros = array();
+    // percorre o resultset retornado pela consulta extraindo um a um os registros retornados
+    while ($registro = proximo_registro()) {
+        // acrescenta o registro ao vetor
+        array_push($registros, $registro);
+    }
 
     return $registros;
 }
 function departamentos() {
-    $consulta = "SELECT * FROM departamentos ORDER BY nome";
+    $consulta = "SELECT * FROM departamentos 
+                   ORDER BY nome";
 
     // executa a consulta sql
     consultar($consulta);
-  
-    $registros = proximo_registro();
+    // declara um vetor de registros para passar para a view (gui)
+    $registros = array();
+    // percorre o resultset retornado pela consulta extraindo um a um os registros retornados
+    while ($registro = proximo_registro()) {
+        // acrescenta o registro ao vetor
+        array_push($registros, $registro);
+    }
 
     return $registros;
 }
