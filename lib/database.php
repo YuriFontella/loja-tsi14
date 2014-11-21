@@ -48,8 +48,15 @@
 	function proximo_registro()
 	{
 		global $result;
-		// retorna um array associativo, com o índice do elemento sendo o nome do campo e o valor do elemento, o valor do campo retornado
-		return mysql_fetch_assoc($result);
+    
+    $registros = array();
+
+    while ($registro = mysql_fetch_assoc($result)) {
+        // acrescenta o registro ao vetor
+        array_push($registros, $registro);
+    }
+    
+    return $registros;
 	}
 
 	// função para retornar o número de linhas afetadas por uma consulta SQL (INSERT, UPDATE ou DELETE)

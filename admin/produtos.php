@@ -35,11 +35,7 @@
 			// declara um vetor de registros para passar para a view (gui)
 			$registros = array();
 			// percorre o resultset retornado pela consulta extraindo um a um os registros retornados
-			while ($registro = proximo_registro())
-			{
-				// acrescenta o registro ao vetor
-				array_push($registros, $registro);
-			}
+			$registros = proximo_registro();
 			// define o título da página
 			$titulo_pagina = 'Lista de produtos';
 			// carrega o arquivo com a listagem de usuários (gui)

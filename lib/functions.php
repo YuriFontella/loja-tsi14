@@ -47,11 +47,7 @@ function listar_usuarios()
   // executa a consulta sql
   consultar($consulta);
   // percorre o resultset retornado pela consulta extraindo um a um os registros retornados
-  while ($registro = proximo_registro())
-  {
-    // acrescenta o registro ao vetor
-    array_push($registros, $registro);
-  }
+  $registros = proximo_registro();
   
   return $registros;  
 
