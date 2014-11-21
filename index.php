@@ -21,8 +21,11 @@
     
     $titulo = 'Loja TSI14';
     $chamadas = chamadas();
+    $deptos = departamentos();
     
+    require_once ('layout/head.php');
     require_once('layout/site.php');
+    
     
   break;
       
