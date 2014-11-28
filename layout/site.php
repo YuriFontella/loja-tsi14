@@ -1,3 +1,5 @@
+<div class="alert alert-success notification"><p>Adicionando o produto...</p></div>
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <div class="collapse navbar-collapse">

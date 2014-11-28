@@ -18,7 +18,12 @@ $('.botaoComprar').click(function(){
     url: url+'index.php?acao=adicionar&produto='+id,
     type: 'get',
     success: function(){
-      window.location.reload();
+      
+      $('.notification').fadeIn(300);
+      setTimeout(function(){
+        window.location.reload();
+      }, 2000)
+      
     }
 
   })    

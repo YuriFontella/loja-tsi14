@@ -81,3 +81,19 @@ a.alinhamento {
     font-family: Verdana;
     font-size: 16pt;
 }
+.notification 
+{
+  display: none;
+  position: fixed;
+  width: 200px;
+  height: 40px;
+  top: 40px;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 99999;
+  text-align: center;
+}
+.notification p
+{
+  margin-top: -6px;
+}
