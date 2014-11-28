@@ -1,7 +1,13 @@
 <?php
 
 	// declaração da constante da URL base da aplicação
-	define('URL_BASE', 'http://localhost/loja-tsi14/');
+
+  $server = $_SERVER['SERVER_NAME'];
+  $uri = $_SERVER ['REQUEST_URI'];
+
+  $endereco = explode('/', $uri);
+
+	define('URL_BASE', 'http://' . $server . '/' . $endereco[1] . '/');
 
 	// declaração das constantes de acesso ao banco de dados
 	define('HOST', 'localhost');

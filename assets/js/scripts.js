@@ -1,3 +1,5 @@
+url = document.location.toString();
+
 $(function(){
   
   $('#foto').change(function(){
@@ -5,4 +7,19 @@ $(function(){
     $('.text-upload').html("O arquivo está pronto para ser enviado!");
     $('.btn-upload').show();
   })
+})
+
+$('.botaoComprar').click(function(){
+    
+  var id = $(this).attr('id');
+
+  $.ajax({
+
+    url: url+'index.php?acao=adicionar&produto='+id,
+    type: 'get',
+    success: function(){
+      window.location.reload();
+    }
+
+  })    
 })

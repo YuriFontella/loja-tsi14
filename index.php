@@ -59,9 +59,16 @@
     
     $data = adicionar_carrinho($id_produto, $id_session);
     
+  break;
+    
+  case 'remover':
+    
+    $id = $_GET['id'];
+    $data = remover($id);
+    
     if($data == TRUE)
     {
-      header('Location: '.URL_BASE.'');
+      header('Location: '.URL_BASE.'index.php?acao=carrinho');
     }
     
   break;

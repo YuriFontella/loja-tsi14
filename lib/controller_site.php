@@ -58,11 +58,22 @@ function adicionar_carrinho($id_produto, $id_session)
   $query = "INSERT INTO carrinho (id_produto, id_session) VALUES ('$id_produto', '$id_session')";
   consultar($query);
   
+  if(linhas_afetadas() < 0)
+  {    
+    die('Houve algum erro, tente novamente!'); 
+  }
+  
+}
+
+function remover($id)
+{
+  $query = "DELETE FROM carrinho WHERE id = '$id'";
+  consultar($query);
+  
   if(linhas_afetadas() > 0)
   {    
     return TRUE;      
   }
-  
 }
 
 ?>
