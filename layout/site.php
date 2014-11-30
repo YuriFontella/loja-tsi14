@@ -1,3 +1,5 @@
+<?php require_once("layout/head.php") ?>
+
 <div class="alert alert-success notification"><p>Adicionando o produto...</p></div>
 
 <nav class="navbar navbar-default" role="navigation">
@@ -16,19 +18,14 @@
 </nav>
 
 <body>
+  
     <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="list-group">
-                    <?php foreach ($deptos as $depto) { ?>
-                        <a href="#" class="list-group-item"><?= $depto['nome'] ?></a>
-                    <?php } /* end foreach */ ?> 
-                </div>
-            </div>
+      <div class="row">
 
-            <?php require_once($content) ?>
+      <?php require_once("layout/menu_categoria.php") ?>
+      <?php require_once($content) ?>
           
-        </div>
+      </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

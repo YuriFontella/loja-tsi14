@@ -9,7 +9,7 @@
 
   if( ! $_SESSION['carrinho'])
   {
-    $_SESSION['carrinho'] = sha1(rand(0, 9999) + 1234);
+    $_SESSION['carrinho'] = sha1(rand(1, 9999) + 1234);
   }
 
   if (isset($_GET['acao']))
@@ -28,15 +28,27 @@
   case 'index':
     
     $titulo = 'Loja TSI14';
-    $chamadas = chamadas();
+    $chamadas = chamadas($id = null);
     $deptos = departamentos();
     
     $carrinho = listar_carrinho($_SESSION['carrinho']);
     
     $content = 'sections/loja.php';
-    require_once ('layout/head.php');
     require_once('layout/site.php');
     
+    
+  break;
+    
+  case 'categoria':
+    
+    $chamadas = chamadas($_GET['id']);
+    $titulo = 'Categoria | ' . $chamadas[0]['nome_departamento'];
+    
+    $deptos = departamentos();
+    $carrinho = listar_carrinho($_SESSION['carrinho']);
+    
+    $content = 'sections/loja.php';
+    require_once('layout/site.php');
     
   break;
 
@@ -47,7 +59,6 @@
     $carrinho = listar_carrinho($_SESSION['carrinho']);
     
     $content = 'sections/carrinho.php';
-    require_once ('layout/head.php');
     require_once('layout/site.php');  
 
   break;

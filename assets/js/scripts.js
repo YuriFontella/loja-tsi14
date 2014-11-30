@@ -1,5 +1,3 @@
-url = document.location.toString();
-
 $(function(){
   
   $('#foto').change(function(){
@@ -15,14 +13,14 @@ $('.botaoComprar').click(function(){
 
   $.ajax({
 
-    url: url+'index.php?acao=adicionar&produto='+id,
+    url: 'index.php?acao=adicionar&produto='+id,
     type: 'get',
     success: function(){
       
       $('.notification').fadeIn(300);
       setTimeout(function(){
         window.location.reload();
-      }, 2000)
+      }, 1000)
       
     }
 
