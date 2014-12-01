@@ -4,7 +4,6 @@
     <?php foreach ($chamadas as $chamada) { ?>
         <div class="col-sm-4">
             <div id="produto" class="thumbnail">                
-
                 <?php
                 $caminhoFoto = $chamada['foto'];
 
@@ -16,11 +15,14 @@
                 ?>
                 <?php //var_dump($chamada); ?>
                 <a class="alinhamento" href=""><h3><?php echo $chamada['nome_produto'] ?></h3></a>
-                <a href="">
+                <a href="<?= URL_BASE . 'index.php?acao=produto&id=' . $chamada['id']; ?>">
                   <img class="imagem mostrar" src="<?= $img_produto ?>" width="150" height="150">                  
                 </a>
                 <hr>
                 <p><?= substr($chamada['detalhes'], 0, 30) ?></p>
+                <a href="<?= URL_BASE . 'index.php?acao=produto&id=' . $chamada['id']; ?>">Mais Informações...</a>
+                <br>
+                <br>
                 <a href=""><strong><h3>Valor R$ <?php echo number_format($chamada['preco'], 2, ',', '.') ?></h3></strong></a>
                 <button type="button" class="btn btn-info btn-block botaoComprar" id="<?php echo $chamada['id'] ?>">Adicionar ao carrinho</button>
             </div>  

@@ -1,5 +1,7 @@
 body {
-    background-image: url(../img/back.jpg);
+    background-image: url(../img/repeat-back.png);
+    background-repeat: repeat;
+    
 }
 #login 
 { 
@@ -63,6 +65,11 @@ body {
     width: 150px;
 }
 
+.mostraProduto {
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+}
 .logo {
     margin-top: 15px;
     margin-bottom: 15px;

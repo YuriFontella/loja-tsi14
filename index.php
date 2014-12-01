@@ -79,6 +79,19 @@
     }
     
   break;
+  
+  case 'produto':
+    
+    $produto = produto($_GET['id']);
+    $titulo = $produto['nome_produto'];
+    
+    $deptos = departamentos();
+    $carrinho = listar_carrinho($_SESSION['carrinho']);
+   
+    
+    require_once('layout/produto.php');
+    
+  break;
     
   case 'usuario':
     

@@ -53,6 +53,27 @@ function departamentos()
     return $registros;
 }
 
+function produto($id) 
+{
+    $consulta = "SELECT p.id, p.nome as nome_produto, p.detalhes, p.preco, p.id_departamento, d.nome as nome_departamento, i.foto 
+                 FROM produtos p
+                 LEFT JOIN imagens i ON  p.id = i.id_produto
+                 JOIN departamentos d ON d.id = p.id_departamento
+                 WHERE p.id = '$id'";
+
+    // executa a consulta sql
+    consultar($consulta);
+    // declara um vetor de registros para passar para a view (gui)
+    $registros = array();
+    // percorre o resultset retornado pela consulta extraindo um a um os registros retornados
+    while ($registro = proximo_registro()) {
+        // acrescenta o registro ao vetor
+        array_push($registros, $registro);
+    }
+
+    return $registros[0];
+}
+
 function listar_carrinho($id_session)
 {
   

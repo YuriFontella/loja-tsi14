@@ -30,23 +30,6 @@
     <script>url = '<?php echo URL_BASE ?>'</script>
     <script src="<?php echo URL_BASE ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo URL_BASE ?>assets/js/scripts.js"></script>
-    <script>
-        function equalHeight(group) {
-            tallest = 0;
-            group.each(function () {
-                thisHeight = $(this).height();
-                if (thisHeight > tallest) {
-                    tallest = thisHeight;
-                }
-            });
-            group.each(function () {
-                $(this).height(tallest);
-            });
-        }
-
-        $(document).ready(function () {
-            equalHeight($(".thumbnail"));
-        });
-    </script>
+    
 </body>
 </html>
