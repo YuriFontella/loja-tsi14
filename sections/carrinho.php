@@ -1,6 +1,6 @@
 <div class="col-md-12">
 
-  <h1>Carrinho <?php echo $_SESSION['carrinho'] ?></h1>
+  <h1>Carrinho</h1>
   <table class="table table-striped">
     <thead>
       <tr>

@@ -129,8 +129,24 @@
     
     if( ! $_SESSION['cliente'])
     {
+			
       header('Location: index.php?acao=usuario&error=true&message=É+necessário+que+você+faça+o+login+ou+cadastre-se+primeiro!');
-    } 
+			
+    } else {
+			
+			$id_cliente = $_SESSION['id'];
+			$id_session = $_SESSION['carrinho'];
+			$data = pedidos($id_cliente, $id_session);
+			
+			if($data == true)
+			{
+			  $_SESSION['carrinho'] = substr(rand(1, 99999999999999) + rand(1, 99999999999999), 0, 10);
+        header('Location: index.php?acao=carrinho&success=true&message=Sua+compra+foi+finalizada!+Seu+carrinho+foi+esvaziado,+aproveite+que+os+produtos+estão+tudo+de+graça+em+nossa+loja!');
+      }
+			
+		}
+		
+
 
   break;
     

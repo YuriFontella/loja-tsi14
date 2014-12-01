@@ -152,4 +152,22 @@ function login_cliente($email, $senha)
   
 }
 
+function pedidos($id_cliente, $id_session)
+{
+  
+  if ($id_cliente == null or $id_session)
+  {
+    echo "<script>alert('Houve algum problema, tente novamente!');history.go(-1);</script>";
+  }
+  
+  $query = "INSERT INTO pedidos (id_cliente, Id_session) VALUES ('$id_cliente', '$id_session')";
+  consultar($query);
+  
+  if(linhas_afetadas() > 0)
+  {    
+    return true;
+  }
+
+}
+
 ?>
