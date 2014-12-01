@@ -65,7 +65,7 @@
             <?php endif ?>
 
             <?php if ($_GET['error'] == 'true'): ?>
-                <div class="alert alert-error">
+                <div class="alert alert-danger">
                     <p><?php echo $_GET['message'] ?></p>
                 </div>
             <?php endif ?>

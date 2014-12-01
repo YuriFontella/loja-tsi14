@@ -1,5 +1,8 @@
 <?php
 
+session_name('cliente');
+session_start();
+
 function chamadas($id) 
 {
     
@@ -53,7 +56,11 @@ function departamentos()
 function listar_carrinho($id_session)
 {
   
-  $consulta = "SELECT p.id, p.nome, p.preco, p.detalhes, c.id, c.id_produto  FROM carrinho c, produtos p WHERE id_session = '$id_session' AND c.id_produto = p.id ORDER BY c.timestamp DESC";
+  $consulta = "SELECT (SELECT SUM(preco) FROM carrinho c, produtos p WHERE id_session = '$id_session' AND p.id = c.id_produto) AS total, p.id, p.nome, p.preco, p.detalhes, c.id, c.id_produto  
+	             FROM carrinho c, produtos p 
+							 WHERE id_session = '$id_session' AND c.id_produto = p.id 
+							 ORDER BY c.timestamp DESC";
+	
   consultar($consulta);
 
   $registros = array();
@@ -67,13 +74,23 @@ function listar_carrinho($id_session)
 
 function adicionar_carrinho($id_produto, $id_session)
 {
+  $valida = "SELECT * FROM carrinho WHERE id_produto = '$id_produto' AND id_session = '$id_session'";
+  consultar($valida);
+  
+  if(linhas_afetadas() == 1)
+  {    
+    die('Esse produto já está no seu carrinho!'); 
+  }
+  
   $query = "INSERT INTO carrinho (id_produto, id_session) VALUES ('$id_produto', '$id_session')";
   consultar($query);
   
-  if(linhas_afetadas() < 0)
+  if(linhas_afetadas() == 0)
   {    
     die('Houve algum erro, tente novamente!'); 
   }
+  
+  return true;
   
 }
 
@@ -84,7 +101,53 @@ function remover($id)
   
   if(linhas_afetadas() > 0)
   {    
-    return TRUE;      
+    return true;      
+  }
+  
+}
+
+function cadastrar_cliente($nome, $email, $senha)
+{
+  
+  if ($nome == null or $email == null or $senha == null)
+  {
+    echo "<script>alert('Nenhum campo pode ficar em branco.');history.go(-1);</script>";
+  }
+  
+  $query = "INSERT INTO clientes (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+  consultar($query);
+  
+  if(linhas_afetadas() > 0)
+  {    
+    return true;
+  }
+
+}
+
+function login_cliente($email, $senha)
+{
+  
+  if ($email == null or $senha == null)
+  {
+    echo "<script>alert('Nenhum campo pode ficar em branco.');history.go(-1);</script>";
+  }
+
+  $query = "SELECT id, email, senha FROM clientes WHERE email = '$email' AND senha = '$senha' LIMIT 1";
+  consultar($query);
+  
+  $resultado = proximo_registro();
+  
+  if(linhas_afetadas() == 1)
+  {    
+    $_SESSION['cliente'] = TRUE;
+    $_SESSION['id'] = $resultado['id'];
+    
+    return true;
+    
+  }
+  else
+  {
+    echo "<script>alert('Login ou senha incorretos, verifique!');history.go(-1);</script>";
   }
   
 }

@@ -1,6 +1,6 @@
 <div class="col-md-12">
 
-  <h1>Carrinho</h1>
+  <h1>Carrinho <?php echo $_SESSION['carrinho'] ?></h1>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -21,7 +21,15 @@
       </tr>
       <?php endforeach ?>
       <?php else: ?>
-        <td colspan="4"><p>Nenhum item no carrinho!</p></td>
+      <tr>
+        <td colspan="4"><p>Nenhum item no carrinho!</p></td>      
+      </tr>
+      <?php endif ?>
+      <?php if(count($carrinho) > 0): ?>
+      <tr>
+        <td colspan="2"><h3><b>Valor Total: R$ <?php echo number_format($carrinho[0]['total'], 2, ',', '.') ?></h3></b></td>
+        <td colspan="2"><button class="btn btn-primary pull-right" onclick="window.location = 'index.php?acao=finalizar'">Finalizar compra</button></td>      
+      </tr>
       <?php endif ?>
     </tbody>
   </table>

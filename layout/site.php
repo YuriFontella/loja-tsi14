@@ -1,28 +1,24 @@
 <?php require_once("layout/head.php") ?>
-
-<div class="alert alert-success notification"><p>Adicionando o produto...</p></div>
-
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
-    <div class="collapse navbar-collapse">
-      <div class="logo pull-left">
-        <a href="<?php echo URL_BASE ?>">
-          <img src="<?php echo URL_BASE ?>assets/img/logo.png" href="#">
-        </a>
-      </div> 
-      <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:40px"><a href="<?php echo URL_BASE ?>index.php?acao=carrinho">Carrinho de compras (<?php echo count($carrinho) ?>)</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php require_once("layout/navbar.php") ?>
 
 <body>
   
     <div class="container">
       <div class="row">
+        
+      <!-- Alertas -->
+      <?php if ($_GET['success'] == 'true'): ?>
+          <div class="alert alert-success">
+              <p><?php echo $_GET['message'] ?></p>
+          </div>
+      <?php endif ?>
 
-      <?php require_once("layout/menu_categoria.php") ?>
+      <?php if ($_GET['error'] == 'true'): ?>
+          <div class="alert alert-danger">
+              <p><?php echo $_GET['message'] ?></p>
+          </div>
+      <?php endif ?>
+
       <?php require_once($content) ?>
           
       </div>
@@ -31,6 +27,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script>url = '<?php echo URL_BASE ?>'</script>
     <script src="<?php echo URL_BASE ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo URL_BASE ?>assets/js/scripts.js"></script>
     <script>

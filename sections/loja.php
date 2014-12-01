@@ -1,3 +1,5 @@
+<?php require_once("layout/menu_categoria.php") ?>
+
 <div class="col-md-9">
     <?php foreach ($chamadas as $chamada) { ?>
         <div class="col-sm-4">
@@ -18,11 +20,9 @@
                   <img class="imagem mostrar" src="<?= $img_produto ?>" width="150" height="150">                  
                 </a>
                 <hr>
-                <p><?= substr($chamada['detalhes'], 0, 52) ?></p>
+                <p><?= substr($chamada['detalhes'], 0, 30) ?></p>
                 <a href=""><strong><h3>Valor R$ <?php echo number_format($chamada['preco'], 2, ',', '.') ?></h3></strong></a>
-                <div class="botaoComprar">
-                  <button type="button" class="btn btn-info btn-block botaoComprar" id="<?php echo $chamada['id'] ?>">Adicionar ao carrinho</button>
-                </div>
+                <button type="button" class="btn btn-info btn-block botaoComprar" id="<?php echo $chamada['id'] ?>">Adicionar ao carrinho</button>
             </div>  
         </div>
 

@@ -4,12 +4,9 @@
   require_once 'lib/database.php';
   require_once 'lib/controller_site.php';
 
-  session_name('carrinho');
-  session_start();
-
   if( ! $_SESSION['carrinho'])
   {
-    $_SESSION['carrinho'] = sha1(rand(1, 9999) + 1234);
+    $_SESSION['carrinho'] = substr(rand(1, 99999999999999) + rand(1, 99999999999999), 0, 10);
   }
 
   if (isset($_GET['acao']))
@@ -54,8 +51,7 @@
 
   case 'carrinho':
 
-    $titulo = 'Carrinho de compras';
-    
+    $titulo = 'Carrinho de compras';    
     $carrinho = listar_carrinho($_SESSION['carrinho']);
     
     $content = 'sections/carrinho.php';
@@ -68,7 +64,7 @@
     $id_produto = $_GET['produto'];
     $id_session = $_SESSION['carrinho'];
     
-    $data = adicionar_carrinho($id_produto, $id_session);
+    adicionar_carrinho($id_produto, $id_session);
     
   break;
     
@@ -84,8 +80,62 @@
     
   break;
     
-      
+  case 'usuario':
+    
+    if($_SESSION['cliente'])
+    {
+      header('Location:' . URL_BASE);
+    }
+
+
+    $titulo = 'Login | Cadastro';    
+    $carrinho = listar_carrinho($_SESSION['carrinho']);
+    
+    $content = 'sections/login_cadastro.php';
+    require_once('layout/site.php');  
+
+  break;
+
+  case 'cadastrar':
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = sha1($_POST['senha']);
+
+    $data = cadastrar_cliente($nome, $email, $senha);
+
+    if($data == TRUE)
+    {
+      header('Location: index.php?acao=usuario&success=true&message=Cadastro+realizado+com+sucesso+!');
+    }
+
+  break;
+
+  case 'login':
+
+    $email = $_POST['email'];
+    $senha = sha1($_POST['senha']);
+
+    $data = login_cliente($email, $senha);
+
+    if($data == TRUE)
+    {
+      header('Location: index.php?acao=index&success=true&message=Você+está+logado+!');
+    }
+
+  break;
+    
+  case 'finalizar':
+    
+    if( ! $_SESSION['cliente'])
+    {
+      header('Location: index.php?acao=usuario&error=true&message=É+necessário+que+você+faça+o+login+ou+cadastre-se+primeiro!');
+    } 
+
+  break;
+    
   }
+
 
 ?>
     

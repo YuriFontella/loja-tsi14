@@ -13,14 +13,18 @@ $('.botaoComprar').click(function(){
 
   $.ajax({
 
-    url: 'index.php?acao=adicionar&produto='+id,
+    url: url+'index.php?acao=adicionar&produto='+id,
     type: 'get',
-    success: function(){
-      
-      $('.notification').fadeIn(300);
-      setTimeout(function(){
-        window.location.reload();
-      }, 1000)
+    success: function(data){
+      if(data != false)
+      {
+        alert(data);
+      } else {
+        $('.notification').fadeIn(300);
+        setTimeout(function(){
+          document.location.reload();
+        }, 1000);  
+      }
       
     }
 
