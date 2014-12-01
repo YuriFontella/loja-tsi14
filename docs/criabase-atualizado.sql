@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `carrinho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `carrinho` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_produto` int(11) NOT NULL,
-  `id_session` text NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id_produto` int(10) NOT NULL,
+  `id_session` bigint(10) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=210 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,13 +50,13 @@ DROP TABLE IF EXISTS `clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clientes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `senha` varchar(12) NOT NULL,
+  `senha` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS `departamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `departamentos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
@@ -100,9 +100,9 @@ DROP TABLE IF EXISTS `imagens`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `imagens` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `foto` varchar(45) NOT NULL,
-  `id_produto` int(11) NOT NULL,
+  `id_produto` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -118,35 +118,6 @@ INSERT INTO `imagens` VALUES (1,'1.png',5),(2,'2.png',6),(3,'3.png',7),(4,'downl
 UNLOCK TABLES;
 
 --
--- Table structure for table `itens_pedido`
---
-
-DROP TABLE IF EXISTS `itens_pedido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `itens_pedido` (
-  `id_pedido` int(11) NOT NULL,
-  `id_produto` int(11) NOT NULL,
-  `quantidade` int(11) NOT NULL,
-  `preco` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id_pedido`,`id_produto`),
-  KEY `fk_itens_pedido_produtos1_idx` (`id_produto`),
-  KEY `fk_itens_pedido_pedidos1_idx` (`id_pedido`),
-  CONSTRAINT `fk_itens_pedido_pedidos1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_itens_pedido_produtos1` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `itens_pedido`
---
-
-LOCK TABLES `itens_pedido` WRITE;
-/*!40000 ALTER TABLE `itens_pedido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `itens_pedido` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `pedidos`
 --
 
@@ -154,15 +125,13 @@ DROP TABLE IF EXISTS `pedidos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pedidos` (
-  `id` int(11) NOT NULL,
-  `registrado_em` timestamp NULL DEFAULT NULL,
-  `situacao` char(1) CHARACTER SET utf8 DEFAULT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `valor_desconto` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_pedidos_clientes1_idx` (`id_cliente`),
-  CONSTRAINT `fk_pedidos_clientes1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(10) NOT NULL,
+  `id_session` bigint(10) NOT NULL,
+  `registrado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` enum('true','false') CHARACTER SET utf8 NOT NULL DEFAULT 'false',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,11 +151,11 @@ DROP TABLE IF EXISTS `produtos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `produtos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) CHARACTER SET utf8 NOT NULL,
   `detalhes` text CHARACTER SET utf8,
   `preco` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `id_departamento` int(11) NOT NULL,
+  `id_departamento` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_produtos_departamentos_idx` (`id_departamento`),
   CONSTRAINT `fk_produtos_departamentos` FOREIGN KEY (`id_departamento`) REFERENCES `departamentos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -211,7 +180,7 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
   `login` varchar(20) NOT NULL,
@@ -241,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-30 20:55:31
+-- Dump completed on 2014-12-01  1:30:26
