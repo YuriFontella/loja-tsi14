@@ -158,9 +158,15 @@
       }
 			
 		}
-		
 
-
+  break;
+    
+  case 'sair':
+    
+    $_SESSION = array();    
+    session_destroy();    
+    header('Location: ' . URL_BASE);
+    
   break;
     
   }
